@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
 import Color from "./Color";
+import { useContext } from "react";
+import { ColorContext } from "../../context/ColorContext";
 
-export default function ColorList({ colors = [], onRemoveColor = f => f, onRateColor = f => f }) {
+export default function ColorList() {
+    const { colors } = useContext(ColorContext)
+    
     if (!colors.length) return <div>No Color Listed</div>
     return (
         <div>
             {
-                colors.map(color => <Color key={color.id} {...color} onRemove={onRemoveColor} onRate={onRateColor}/>)
+                colors.map(color => <Color key={color.id} {...color} />)
             }
         </div>
     )
@@ -14,6 +18,4 @@ export default function ColorList({ colors = [], onRemoveColor = f => f, onRateC
 
 ColorList.propTypes = {
     colors: PropTypes.array,
-    onRemoveColor: PropTypes.func.isRequired,
-    onRateColor: PropTypes.func.isRequired,
 }
