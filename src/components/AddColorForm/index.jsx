@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
 import { useInput } from "../../hooks/useInput";
+import { useColors } from "../../hooks/useColors";
 
-export default function AddColorForm({ onNewColor = f => f }) {
+export default function AddColorForm() {
     const [titleProps, resetTitle] = useInput("")
     const [colorProps, resetColor] = useInput("#000")
+    const { addColor } = useColors()
 
     const submit = e => {
         e.preventDefault()
 
-        onNewColor(titleProps.value, colorProps.value)
+        addColor(titleProps.value, colorProps.value)
 
         resetTitle()
         resetColor()

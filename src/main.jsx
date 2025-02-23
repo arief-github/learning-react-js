@@ -1,11 +1,10 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { ColorContext } from './context/ColorContext.js'
-import colors from './data/color-data.json'
+import ColorProvider from './providers/ColorProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <ColorContext.Provider value={{ colors }}>
+  <ColorProvider>
     <App />
-  </ColorContext.Provider>,
+  </ColorProvider>,
 )
