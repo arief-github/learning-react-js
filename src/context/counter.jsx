@@ -38,7 +38,10 @@ function useCounter() {
     return context
 }
 
-export { CounterProvider, useCounter }
+const increment = dispatch => dispatch({ type: 'increment' })
+const decrement = dispatch => dispatch({ type: 'decrement' })
+
+export { CounterProvider, useCounter, increment, decrement }
 
 CounterProvider.propTypes = {
     step: number.isRequired,
