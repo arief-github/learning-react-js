@@ -1,13 +1,13 @@
-import { useState } from 'react'
 import './App.css'
-import ColorList from './components/ColorList'
-import colorData from './data/color-data.json'
+import Counter from './components/Counter'
+import { CounterProvider } from './context/counter'
 
 function App() {
-  const [colors] = useState(colorData)
 
   return (
-    <ColorList colors={colors}/>
+    <CounterProvider>
+      <Counter />
+    </CounterProvider>
   )
 }
 
