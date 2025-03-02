@@ -1,6 +1,5 @@
 import { dequal } from "dequal";
-import * as userClient from '../../helpers/user-client'
-import { useUser } from "../../context/user-context";
+import { useUser, updateUser } from "../../context/user-context";
 import { useState } from "react";
 
 export default function UserSetting() {
@@ -19,11 +18,7 @@ export default function UserSetting() {
     function handleSubmit(event) {
         event.preventDefault()
         
-        userDispatch({ type: 'start update', updates: formState })
-        userClient.updateUser(user, formState).then(
-            updatedUser => userDispatch({ type: 'finish update', updatedUser }),
-            error => userDispatch({ type: 'fail update', error })    
-        )
+        updateUser(userDispatch, user, formState).catch(() => {})
     }
 
     return (
