@@ -5,26 +5,22 @@ import './App.css'
 // import { CounterProvider } from './context/counter'
 
 // USERDISPLAY APP
-import UserDataDisplay from './components/UserDataDisplay'
-import UserSetting from './components/UserProfile'
-import { UserProvider } from './context/user-context'
+// import UserDataDisplay from './components/UserDataDisplay'
+// import UserSetting from './components/UserProfile'
+// import { UserProvider } from './context/user-context'
+
+import { Toggle } from './context/toggle-context'
+import { ToggleOn, ToggleOff, ToggleButton } from './helpers/toggle-helpers.jsx'
 
 function App() {
   return (
-    <div 
-      style={{
-        minHeight: 350,
-        width: 300,
-        backgroundColor: '#ddd',
-        borderRadius: 4,
-        padding: 10,
-      }}
-    >
-      <UserProvider>
-        <UserSetting/>
-        <UserDataDisplay/>
-      </UserProvider>
-    </div>
+    <Toggle>
+      <ToggleOn>The Button is on</ToggleOn>
+      <ToggleOff>The Button is off</ToggleOff>
+      <div>
+        <ToggleButton />
+      </div>
+    </Toggle>
   )
 }
 
