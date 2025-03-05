@@ -1,29 +1,23 @@
 import './App.css'
+import { Switch } from './components/Switch'
+import useToggle from './hooks/useToggle'
 
 // COUNTER APP
 // import Counter from './components/Counter'
 // import { CounterProvider } from './context/counter'
 
 // USERDISPLAY APP
-import UserDataDisplay from './components/UserDataDisplay'
-import UserSetting from './components/UserProfile'
-import { UserProvider } from './context/user-context'
+// import UserDataDisplay from './components/UserDataDisplay'
+// import UserSetting from './components/UserProfile'
+// import { UserProvider } from './context/user-context'
+
 
 function App() {
+  const { on, togglerProps } = useToggle()
+
   return (
-    <div 
-      style={{
-        minHeight: 350,
-        width: 300,
-        backgroundColor: '#ddd',
-        borderRadius: 4,
-        padding: 10,
-      }}
-    >
-      <UserProvider>
-        <UserSetting/>
-        <UserDataDisplay/>
-      </UserProvider>
+    <div>
+      <Switch on={on} {...togglerProps} />
     </div>
   )
 }
